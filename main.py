@@ -2,12 +2,14 @@ import pygame
 import requests
 import buttons
 
+difficulty = 'easy'
+
 WIDTH = 550
 background_color = (255,250,250)
 original_color = (52, 34, 50)
 buffer = 5 
 
-response = requests.get("https://sugoku.herokuapp.com/board?difficulty=easy")
+response = requests.get(f"https://sugoku.herokuapp.com/board?difficulty={difficulty}")
 grid = response.json()['board']
 grid_original = [grid[x][y] for y in range(len(grid[0])) for x in range(len(grid))]
 
